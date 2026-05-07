@@ -1,0 +1,270 @@
+:root {
+    --border: #222;
+    --ink: #111;
+    --muted: #555;
+    --panel: #f4f4f4;
+    --panel-alt: #e9e9e9;
+    --accent: #5b8def;
+    --accent-dark: #3d6fcb;
+    --success: #dfe7d6;
+    --shadow: rgba(0, 0, 0, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background:
+        linear-gradient(180deg, #fafafa 0%, #f0f0f0 100%);
+    min-height: 100vh;
+}
+
+.app-shell {
+    width: min(1280px, calc(100vw - 32px));
+    margin: 0 auto;
+    padding: 24px 0 40px;
+    display: grid;
+    gap: 28px;
+}
+
+.panel {
+    display: none;
+}
+
+.panel.is-active {
+    display: block;
+}
+
+.panel h1 {
+    margin: 0 0 14px;
+    font-size: clamp(1.4rem, 2vw, 2.2rem);
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.panel-card {
+    border: 2px solid var(--border);
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 10px 30px var(--shadow);
+    padding: 18px;
+}
+
+.lead {
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 10px 0 16px;
+}
+
+.plate-form {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.plate-label {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+input, select, button {
+    font: inherit;
+}
+
+#plateInput, #makeModel, #category, #firstRegistration, #inspectionValidUntil, #plateReadonly, #citySelect, #serviceSelect {
+    width: 100%;
+    border: 2px solid var(--border);
+    background: white;
+    padding: 10px 12px;
+    font-size: 1rem;
+}
+
+#plateInput {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    padding: 16px 12px;
+}
+
+.hint, .status-line, .legend-box p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.primary-button, .secondary-button {
+    border: 2px solid var(--border);
+    padding: 10px 18px;
+    cursor: pointer;
+    min-width: 160px;
+    background: #dcdcdc;
+    transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+.primary-button:hover, .secondary-button:hover {
+    transform: translateY(-1px);
+}
+
+.primary-button {
+    background: var(--accent);
+    color: white;
+}
+
+.primary-button:hover {
+    background: var(--accent-dark);
+}
+
+.status-line {
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.legend-box {
+    border: 2px solid var(--border);
+    background: #fff;
+    margin-top: 16px;
+    padding: 12px;
+    display: grid;
+    gap: 4px;
+}
+
+.banner {
+    border: 2px solid var(--border);
+    background: var(--success);
+    padding: 12px 14px;
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.banner.warning {
+    background: #ffd6d6;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 12px 16px;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-grid label, .select-label {
+    font-weight: 600;
+}
+
+.actions-row {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.actions-row.right-aligned {
+    justify-content: flex-end;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.split-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 18px;
+}
+
+.vehicle-summary {
+    border: 2px solid var(--border);
+    background: linear-gradient(180deg, #efefef 0%, #ffffff 100%);
+    padding: 16px;
+    display: grid;
+    gap: 12px;
+    align-content: start;
+}
+
+.summary-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+}
+
+.form-grid input.error {
+    border-color: #b00020;
+    background: #ffebee;
+}
+
+.error-message {
+    color: #b00020;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    grid-column: 2;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 2px 0;
+}
+
+.selection-stack {
+    border: 2px solid var(--border);
+    background: #fff;
+    padding: 16px;
+    display: grid;
+    gap: 10px;
+    align-content: start;
+}
+
+#citySelect, #serviceSelect {
+    cursor: pointer;
+}
+
+#pointSelect {
+    border: 2px solid var(--border);
+}
+
+@media (max-width: 900px) {
+    .split-card, .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions-row.right-aligned {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-shell {
+        width: min(100vw - 20px, 1280px);
+        padding-top: 12px;
+    }
+
+    .panel h1 {
+        font-size: 1.25rem;
+    }
+
+    #plateInput {
+        font-size: 1.4rem;
+    }
+
+    .actions-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .primary-button, .secondary-button {
+        width: 100%;
+    }
+}

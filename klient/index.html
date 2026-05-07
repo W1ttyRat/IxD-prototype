@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehnoülevaatuse broneerimine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="app-shell">
+        <section class="panel step-panel is-active" id="stepPlate">
+            <h1>SÕIDUKI TUVASTAMISE KATSE</h1>
+            <div class="panel-card">
+                <p class="lead">Palun sisesta sõiduki numbrimärk:</p>
+                <form id="plateForm" class="plate-form">
+                    <label class="plate-label" for="plateInput">NUMBRIMÄRK</label>
+                    <input id="plateInput" name="plateInput" type="text" maxlength="10" autocomplete="off"
+                        placeholder="123ABC">
+                    <p class="hint">Sobiv numbrimärk: 123ABC või 456DEF</p>
+                    <button class="primary-button" type="submit">Edasi</button>
+                </form>
+                <p class="status-line" id="plateStatus"></p>
+            </div>
+        </section>
+
+        <section class="panel step-panel" id="stepVehicle">
+            <h1>ANDMETE KÄSITSI SISESTAMINE</h1>
+            <div class="panel-card">
+                <div class="banner success" id="lookupBanner">Numbrimärgi põhjal andmeid ei leitud. Palun sisesta
+                    sõiduki andmed käsitsi.</div>
+
+                <div class="form-grid">
+                    <label for="makeModel">Mark/Mudel</label>
+                    <input id="makeModel" type="text" placeholder="">
+
+                    <label for="category">Sõiduki kategooria</label>
+                    <input id="category" type="text" placeholder="M1">
+
+                    <label for="firstRegistration">Esmane registreerimine</label>
+                    <input id="firstRegistration" type="text" placeholder="DD/MM/YYYY">
+
+                    <label for="inspectionValidUntil">Ülevaatuse kehtivus</label>
+                    <input id="inspectionValidUntil" type="text" placeholder="DD/MM/YYYY">
+
+                    <label for="plateReadonly">Numbrimärk</label>
+                    <input id="plateReadonly" type="text" readonly>
+                </div>
+
+                <div class="actions-row">
+                    <button class="secondary-button" id="backToPlate" type="button">Tagasi</button>
+                    <div class="spacer"></div>
+                    <button class="primary-button" id="goToService" type="button">Jätka</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel step-panel" id="stepService">
+            <h1>KLIENDI INFO JA VALIKUD</h1>
+            <div class="panel-card split-card">
+                <div class="vehicle-summary">
+                    <div class="summary-title">Sõiduki info: <span id="summaryVehicle">TOYOTA, RAV4</span></div>
+                    <div class="summary-row"><span>Esmane reg.</span><strong id="summaryFirstReg">DD/MM/YYYY</strong>
+                    </div>
+                    <div class="summary-row"><span>Ülevaatuse kehtivus</span><strong
+                            id="summaryValidUntil">DD/MM/YYYY</strong></div>
+                    <div class="summary-row"><span>Päevi jäänud</span><strong id="summaryDaysLeft">450</strong></div>
+                </div>
+
+                <div class="selection-stack">
+                    <label class="select-label" for="citySelect">Asukoht</label>
+                    <select id="citySelect">
+                        <option value="Tallinn">Tallinn</option>
+                        <option value="Tartu">Tartu</option>
+                        <option value="Narva">Narva</option>
+                        <option value="Pärnu">Pärnu</option>
+                    </select>
+
+                    <label class="select-label" for="pointSelect">Kontrollipunkt</label>
+                    <select id="pointSelect">
+                        <option value="">Vali kontrollipunkt</option>
+                    </select>
+
+                    <label class="select-label" for="serviceSelect">Teenuse kategooria</label>
+                    <select id="serviceSelect">
+                        <option value="Tehnoülevaatus">Tehnoülevaatus</option>
+                        <option value="Korduv ülevaatus">Korduv ülevaatus</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="actions-row right-aligned">
+                <button class="secondary-button" id="backToVehicle" type="button">Tagasi</button>
+                <button class="primary-button" id="continueToCalendar" type="button">Jätka</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
