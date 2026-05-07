@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Töötaja kalendrivaade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <p class="login-eyebrow">Töötaja ligipääs</p>
+            <h1>Sisene kalendrivaatesse</h1>
+            <p class="login-copy">Kalendri kasutamiseks logi kõigepealt sisse.</p>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Kasutajanimi</label>
+                    <input type="text" id="username" autocomplete="username" placeholder="töötaja">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Parool</label>
+                    <input type="password" id="password" autocomplete="current-password" placeholder="••••••">
+                </div>
+
+                <p class="login-hint">Demo andmed: kasutajanimi <strong>töötaja</strong>, parool <strong>1234</strong>
+                </p>
+
+                <button type="submit" class="btn btn-confirm login-button">Sisene</button>
+                <div class="message" id="loginMessage"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Töötaja kalendrivaade</h1>
+
+        <div class="toolbar">
+            <button class="btn btn-reset logout-button" id="logoutBtn" type="button">Logi välja</button>
+        </div>
+
+        <div class="content">
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <button id="prevBtn" onclick="previousMonth()">&lt;</button>
+                    <div class="month-year" id="monthYear"></div>
+                    <button id="nextBtn" onclick="nextMonth()">&gt;</button>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #a8d5ba;"></div>
+                        <span>Saadaval</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #4a90e2;"></div>
+                        <span>Valitud</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #e8b4b4;"></div>
+                        <span>Pole saadaval</span>
+                    </div>
+                </div>
+
+                <div class="calendar" id="calendar"></div>
+            </div>
+
+            <div class="sidebar">
+                <div class="form-group">
+                    <label>Asukoht</label>
+                    <select id="locationSelect">
+                        <option value="">Vali asukoht</option>
+                        <option value="tallinn">Tallinn</option>
+                        <option value="tartu">Tartu</option>
+                        <option value="haapsalu">Haapsalu</option>
+                        <option value="narva">Narva</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Algus (HH:MM)</label>
+                    <div class="time-picker" id="startTimePicker"></div>
+                    <input type="hidden" id="startTime" value="09:00">
+                </div>
+
+                <div class="form-group">
+                    <label>Lõpp (HH:MM)</label>
+                    <div class="time-picker" id="endTimePicker"></div>
+                    <input type="hidden" id="endTime" value="10:00">
+                </div>
+
+                <div class="selected-info" id="selectedInfo" style="display: none;">
+                    <p><strong>Valitud kuupäevad:</strong></p>
+                    <p id="selectedDate">-</p>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-reset" onclick="resetSelection()">Kustuta</button>
+                    <button class="btn btn-confirm" id="confirmBtn" onclick="confirmSelection()"
+                        disabled>Kinnita</button>
+                </div>
+
+                <div class="message" id="message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
