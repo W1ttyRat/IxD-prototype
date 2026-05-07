@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bossi kalendrivaade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <p class="login-eyebrow">Bossi ligipääs</p>
+            <h1>Sisene kinnitamiste vaatesse</h1>
+            <p class="login-copy">Töötajate soove kinnitamiseks logi kõigepealt sisse.</p>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Kasutajanimi</label>
+                    <input type="text" id="username" autocomplete="username" placeholder="boss">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Parool</label>
+                    <input type="password" id="password" autocomplete="current-password" placeholder="••••••">
+                </div>
+
+                <p class="login-hint">Demo andmed: kasutajanimi <strong>boss</strong>, parool <strong>1234</strong></p>
+
+                <button type="submit" class="btn btn-confirm login-button">Sisene</button>
+                <div class="message" id="loginMessage"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div class="toolbar">
+            <button class="btn btn-reset logout-button" id="logoutBtn" type="button">Logi välja</button>
+        </div>
+
+        <div class="main-layout">
+            <aside class="sidebar-left">
+                <h2>Vaated</h2>
+                <div class="view-list">
+                    <div class="view-item active" onclick="setViewFilter('all')">
+                        <span class="view-icon" style="background-color: #4a90e2;"></span>
+                        <span class="view-label">Kõik taotlused</span>
+                    </div>
+                    <div class="view-item" onclick="setViewFilter('pending')">
+                        <span class="view-icon" style="background-color: #f4d97f;"></span>
+                        <span class="view-label">Ootel kinnitamine</span>
+                    </div>
+                    <div class="view-item" onclick="setViewFilter('approved')">
+                        <span class="view-icon" style="background-color: #a8d5ba;"></span>
+                        <span class="view-label">Kinnitatud</span>
+                    </div>
+                    <div class="view-item" onclick="setViewFilter('rejected')">
+                        <span class="view-icon" style="background-color: #e8b4b4;"></span>
+                        <span class="view-label">Keeldutud</span>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 24px;">Asukohad</h3>
+                <div class="location-list">
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="location-filter" value="tallinn" checked>
+                        <span>Tallinn</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="location-filter" value="tartu" checked>
+                        <span>Tartu</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="location-filter" value="haapsalu" checked>
+                        <span>Haapsalu</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="location-filter" value="narva" checked>
+                        <span>Narva</span>
+                    </label>
+                </div>
+
+                <h3 style="margin-top: 24px;">Otsing</h3>
+                <input type="text" id="searchWorker" placeholder="Otsing nime järgi..."
+                    style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+            </aside>
+
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <button id="prevBtn" onclick="previousMonth()">&lt;</button>
+                    <div class="month-year" id="monthYear"></div>
+                    <button id="nextBtn" onclick="nextMonth()">&gt;</button>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f4d97f;"></div>
+                        <span>Ootel</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #a8d5ba;"></div>
+                        <span>Kinnitatud</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #e8b4b4;"></div>
+                        <span>Keeldutud</span>
+                    </div>
+                </div>
+
+                <div class="calendar" id="calendar"></div>
+            </div>
+
+            <aside class="sidebar-right">
+                <div class="day-details-container" id="dayDetailsContainer">
+                    <p style="color: #999; text-align: center; margin-top: 24px;">Valige kuupäev kalendrist</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
