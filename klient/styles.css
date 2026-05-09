@@ -85,6 +85,14 @@ input, select, button {
     font-size: 1rem;
 }
 
+#appointmentDate, #appointmentTime {
+    width: 100%;
+    border: 2px solid var(--border);
+    background: white;
+    padding: 10px 12px;
+    font-size: 1rem;
+}
+
 #plateInput {
     text-transform: uppercase;
     text-align: center;
@@ -266,5 +274,201 @@ input, select, button {
 
     .primary-button, .secondary-button {
         width: 100%;
+    }
+}
+
+/* Calendar Widget Styling */
+.calendar-time-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.calendar-widget {
+    background: linear-gradient(135deg, #1e5a96 0%, #2563b8 100%);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    display: grid;
+    gap: 16px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+    flex: 1;
+    text-transform: capitalize;
+}
+
+.nav-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+}
+
+.weekday {
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 8px 0;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-day:hover:not(.disabled):not(.empty) {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.calendar-day.empty {
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+.calendar-day.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.calendar-day.today {
+    background: rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.6);
+}
+
+.calendar-day.selected {
+    background: white;
+    color: #1e5a96;
+    border: 3px solid white;
+    font-weight: bold;
+}
+
+/* Time Slots Section */
+.time-slots-section {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+}
+
+.time-header {
+    background: var(--accent);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.time-slots-list {
+    display: grid;
+    gap: 8px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.time-slot {
+    background: #f4a600;
+    border: 2px solid #d68f00;
+    border-radius: 4px;
+    padding: 12px 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    color: white;
+    font-weight: 600;
+}
+
+.time-slot.available {
+    background: #f4a600;
+}
+
+.time-slot.available:hover {
+    background: #e89b00;
+    transform: translateX(2px);
+}
+
+.time-slot.unavailable {
+    background: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.time-slot.selected {
+    background: white;
+    color: #f4a600;
+    border: 3px solid #f4a600;
+}
+
+.slot-time {
+    font-size: 1rem;
+}
+
+.slot-price {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* Booking Summary */
+.booking-summary {
+    background: linear-gradient(180deg, #efefef 0%, #ffffff 100%);
+    border: 2px solid var(--border);
+    padding: 16px;
+    display: grid;
+    gap: 12px;
+}
+
+@media (max-width: 900px) {
+    .calendar-time-wrapper {
+        grid-template-columns: 1fr;
     }
 }

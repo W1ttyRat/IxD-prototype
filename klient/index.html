@@ -95,6 +95,52 @@
                 <button class="primary-button" id="continueToCalendar" type="button">Jätka</button>
             </div>
         </section>
+
+        <section class="panel step-panel" id="stepCalendar">
+            <h1>KUUPÄEVA JA KELLAAJA VALIK</h1>
+            <div class="panel-card">
+                <div class="calendar-time-wrapper">
+                    <!-- Calendar Widget -->
+                    <div class="calendar-widget">
+                        <div class="calendar-header">
+                            <button id="prevMonth" class="nav-button">&lt;</button>
+                            <h2 id="monthYear">mai 2026</h2>
+                            <button id="nextMonth" class="nav-button">&gt;</button>
+                        </div>
+                        <div class="weekdays">
+                            <div class="weekday">E</div>
+                            <div class="weekday">T</div>
+                            <div class="weekday">K</div>
+                            <div class="weekday">N</div>
+                            <div class="weekday">R</div>
+                            <div class="weekday">L</div>
+                            <div class="weekday">P</div>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid"></div>
+                    </div>
+
+                    <!-- Time Slots -->
+                    <div class="time-slots-section">
+                        <div class="time-header" id="selectedDateDisplay">E. mai 11</div>
+                        <div class="time-slots-list" id="timeSlotsContainer"></div>
+                    </div>
+                </div>
+
+                <!-- Summary Section -->
+                <div class="booking-summary">
+                    <div class="summary-row"><span>Asukoht</span><strong id="calendarCity">-</strong></div>
+                    <div class="summary-row"><span>Kontrollipunkt</span><strong id="calendarPoint">-</strong></div>
+                    <div class="summary-row"><span>Teenuse kategooria</span><strong id="calendarService">-</strong>
+                    </div>
+                    <div class="summary-row"><span>Sõiduk</span><strong id="calendarVehicle">-</strong></div>
+                </div>
+            </div>
+
+            <div class="actions-row right-aligned">
+                <button class="secondary-button" id="backToService" type="button">Tagasi</button>
+                <button class="primary-button" id="confirmAppointment" type="button">Broneeri</button>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
